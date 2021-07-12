@@ -21,9 +21,9 @@ pipeline {
                 echo 'Testing the app for the second time'
             }
         }
-        stage("Deploy on Developement Environment") {
+        stage("Deploy on Production Environment") {
             steps {
-                echo 'Deploying the app for the first time on Developement Environment'
+                echo 'Deploying the app for the first time on Production Environment'
             }
         }
     }
