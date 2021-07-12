@@ -4,32 +4,32 @@ piepline {
     
     stages {
         
-        stage ('Build') {
+        stage ("Build") {
             
             step {
                 echo 'Building the app for the first time'
             }
         }
         
-        stage('Test') {
+        stage("Test") {
             step{
                 echo 'Testing the app for the first time'
             }
         }
         
-        stage('Deploy on Developement Environment') {
+        stage("Deploy on Developement Environment") {
             step{
                 echo 'Deploying the app for the first time on Developement Environment'
             }
         }
         
-        stage('Testing again') {
+        stage("Testing again") {
             step{
                 echo 'Testing the app for the second time'
             }
         }
         
-        stage('Deploy on Developement Environment') {
+        stage("Deploy on Developement Environment") {
             step{
                 echo 'Deploying the app for the first time on Developement Environment'
             }
