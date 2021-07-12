@@ -2,27 +2,27 @@ pipeline {
     agent any
     stages {
         stage ("Build") {
-            step {
+            steps {
                 echo 'Building the app for the first time'
             }
         }
         stage("Test") {
-            step{
+            steps {
                 echo 'Testing the app for the first time'
             }
         }
         stage("Deploy on Developement Environment") {
-            step{
+            steps {
                 echo 'Deploying the app for the first time on Developement Environment'
             }
         }
         stage("Testing again") {
-            step{
+            steps {
                 echo 'Testing the app for the second time'
             }
         }
         stage("Deploy on Developement Environment") {
-            step{
+            steps {
                 echo 'Deploying the app for the first time on Developement Environment'
             }
         }
