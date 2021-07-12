@@ -8,7 +8,7 @@ pipeline {
         string(name: 'Deploy_PROD_content', defaultValue: 'Deploying the app for the first time on Prod Env')
     }
     stages {
-        stage ('Build'") {
+        stage ('Build') {
             steps {
                 echo "${params.Build_content}"
             }
