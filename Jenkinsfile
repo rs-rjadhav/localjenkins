@@ -10,7 +10,7 @@ pipeline {
         string(name: 'Staging_app', defaultValue: 'My-new-app')
         string(name: 'Deploy_on_Prod_app', defaultValue: 'My-new-app')
         booleanParam(name: 'ExecuteTestAgain', defaultValue: true)
-        choice(name: 'VERSION', choices['1.1', '1.2', '1.3', '1.4', '1.5'])
+        choice(name: 'VERSION', choices: ['1.1', '1.2', '1.3', '1.4', '1.5'])
     }
     stages {
         stage('Code') {
