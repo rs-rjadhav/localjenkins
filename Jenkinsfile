@@ -24,22 +24,22 @@ pipeline {
         }
         stage('Commit') {
             steps {
-                echo "Commiting code for $Commit_app "
+                echo "Commiting code for $params.Commit_app"
             }
         }
         stage('Build') {
             steps {
-                echo "Building code of $Build_app "
+                echo "Building code of $params.Build_app "
             }
         }
         stage('Test') {
             steps {
-                echo "Testing of $Test_app "
+                echo "Testing of $params.Test_app "
             }
         }
         stage('Review') {
             steps {
-                echo "Reviewing $Review_app"
+                echo "Reviewing $params.Review_app"
             }
         }
         stage('TestAgain') {
@@ -47,17 +47,17 @@ pipeline {
                 expression { ExecuteTestAgain == true }
             }
             steps {
-                echo "TESTAGAIN of  $Staging_app"
+                echo "TESTAGAIN of  $params.Staging_app"
             }
         }
         stage('Staging') {
             steps {
-                echo "Staging of  $Staging_app"
+                echo "Staging of  $params.Staging_app"
             }
         }
         stage('Deploy on Production') {
             steps {
-                echo "Deploying $Deploy_on_Prod_app  on Production Environment with version $params.VERSION"
+                echo "Deploying $params.Deploy_on_Prod_app  on Production Environment with version $params.VERSION"
             }
         }
     }
