@@ -2,16 +2,22 @@
 pipeline {
     agent any
     parameters {
-        string(name: 'Code_app','Commit_app','Build_app','Test_app','Review_app','Staging_app','Deploy_on_Prod_app', defaultValue:  'my-new-app')
-        // string(name: 'Test_app', defaultValue: 'My-new-app')
-        // string(name: 'Deploy_app', defaultValue: 'My-new-app')
-        // string(name: 'Testing_again_app', defaultValue: 'My-new-app')
-        // string(name: 'Deploy_on_Prod_app', defaultValue: 'My-new-app')
+        string(name: 'Code_app', defaultValue:  'My-new-app')
+        string(name: 'Commit_app', defaultValue: 'My-new-app')
+        string(name: 'Build_app', defaultValue: 'My-new-app')
+        string(name: 'Test_app', defaultValue: 'My-new-app')
+        string(name: 'Review_app', defaultValue: 'My-new-app')
+        string(name: 'Staging_app', defaultValue: 'My-new-app')
+        string(name: 'Deploy_on_Prod_app', defaultValue: 'My-new-app')
         booleanParam(name: 'ExecuteTestAgain', defaultValue: true)
         choice(name: 'VERSION', choices ['1.1','1.2','1.3','1.4','1.5'])
     }
     stages {
         stage ('Code') {
+            if (BRANCH_NAME) {
+                BRANCH_NAME == 'main'
+                }
+            }
             steps {
                 echo "Writing code for $Code_app "
             }
