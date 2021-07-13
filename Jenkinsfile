@@ -15,44 +15,46 @@ pipeline {
     stages {
         stage('Code') {
             steps {
-            if (env.BRANCH_NAME == 'main') {
-                echo "Writing code for $Code_app "
+                script {
+                    if (env.BRANCH_NAME == 'main') {
+                        echo "Writing code for $Code_app "
+                    }
+                }
             }
         }
-    }
-    stage('Commit') {
-        steps {
-            echo "Commiting code for $Commit_app "
+        stage('Commit') {
+            steps {
+                echo "Commiting code for $Commit_app "
+            }
         }
-    }
-    stage('Build') {
-        steps {
-            echo "Building code of $Build_app "
+        stage('Build') {
+            steps {
+                echo "Building code of $Build_app "
+            }
         }
-    }
-    stage('Test') {
-        steps {
-            echo "Testing of $Test_app "
+        stage('Test') {
+            steps {
+                echo "Testing of $Test_app "
+            }
         }
-    }
-    stage('Review') {
-        steps {
-            echo "Reviewing $Review_app"
+        stage('Review') {
+            steps {
+                echo "Reviewing $Review_app"
+            }
         }
-    }
-    stage('TestAgain') {
-        when {
-            expression {ExecuteTestAgain == true}
+        stage('TestAgain') {
+            when {
+                expression { ExecuteTestAgain == true }
+            }
         }
-    }
-    stage('Staging') {
-        steps {
-            echo "Staging of  $Staging_app"
+        stage('Staging') {
+            steps {
+                echo "Staging of  $Staging_app"
+            }
         }
-    }
-    stage('Deploy on Production') {
-        steps {
-            echo "Deploying $Deploy_on_Prod_app  on Production Environment with version $params.VERSION"
+        stage('Deploy on Production') {
+            steps {
+                echo "Deploying $Deploy_on_Prod_app  on Production Environment with version $params.VERSION"
             }
         }
     }
