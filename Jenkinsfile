@@ -14,8 +14,7 @@ pipeline {
     }
     stages {
         stage('Code') {
-            if (BRANCH_NAME) {
-                BRANCH_NAME == 'main'
+            if (BRANCH_NAME == 'main') { 
             }
         }
         steps {
