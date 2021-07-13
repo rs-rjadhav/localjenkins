@@ -12,11 +12,6 @@ pipeline {
     }
     stages {
         stage ('Code') {
-            if {
-                expression {
-                    BRANCH_NAME == 'main'
-                }
-            }
             steps {
                 echo "Writing code for $Code_app "
             }
