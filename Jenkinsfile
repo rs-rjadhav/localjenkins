@@ -53,6 +53,7 @@ pipeline {
     stage('Deploy on Production') {
         steps {
             echo "Deploying $Deploy_on_Prod_app  on Production Environment with version $params.VERSION"
+            }
         }
     }
 }
