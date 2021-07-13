@@ -15,7 +15,7 @@ pipeline {
     stages {
         stage('Code') {
             steps {
-            if (BRANCH_NAME == 'main') {
+            if (env.BRANCH_NAME == 'main') {
                 echo "Writing code for $Code_app "
             }
         }
@@ -42,7 +42,7 @@ pipeline {
     }
     stage('TestAgain') {
         when {
-            ExecuteTestAgain == true
+            expression {ExecuteTestAgain == true}
         }
     }
     stage('Staging') {
