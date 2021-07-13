@@ -45,7 +45,7 @@ pipeline {
         stage('TestAgain') {
             when {
                 allOf{
-                expression{ params.ExecuteTestAgain == 'true' }
+                expression{ params.ExecuteTestAgain == true }
                 }
             }
             steps {
