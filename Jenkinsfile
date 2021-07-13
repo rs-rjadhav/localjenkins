@@ -44,7 +44,9 @@ pipeline {
         }
         stage('TestAgain') {
             when {
+                allOf{
                 expression{ params.ExecuteTestAgain == 'true' }
+                }
             }
             steps {
                 echo "TESTAGAIN of  $params.Staging_app"
