@@ -2,7 +2,7 @@
 pipeline {
     agent any
     parameters {
-        string(name: 'Code_app''Commit_app''Build_app''Test_app''Review_app''Staging_app''Deploy_on_Prod_app', defaultValue:  'my-new-app')
+        string(name: 'Code_app','Commit_app','Build_app','Test_app','Review_app','Staging_app','Deploy_on_Prod_app', defaultValue:  'my-new-app')
         // string(name: 'Test_app', defaultValue: 'My-new-app')
         // string(name: 'Deploy_app', defaultValue: 'My-new-app')
         // string(name: 'Testing_again_app', defaultValue: 'My-new-app')
