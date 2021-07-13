@@ -14,11 +14,10 @@ pipeline {
     }
     stages {
         stage('Code') {
-            if (BRANCH_NAME == 'main') { 
+            steps {
+            if (BRANCH_NAME == 'main') {
+                echo "Writing code for $Code_app "
             }
-        }
-        steps {
-            echo "Writing code for $Code_app "
         }
     }
     stage('Commit') {
