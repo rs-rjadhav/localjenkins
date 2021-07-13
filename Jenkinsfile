@@ -46,6 +46,9 @@ pipeline {
             when {
                 expression { ExecuteTestAgain == true }
             }
+            steps {
+                echo "TESTAGAIN of  $Staging_app"
+            }
         }
         stage('Staging') {
             steps {
