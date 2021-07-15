@@ -1,6 +1,6 @@
 // jenkinsfile-v3
 pipeline {
-    agent master
+    agent any
     parameters {
         string(name: 'Code_app', defaultValue: 'My-new-app')
         string(name: 'Commit_app', defaultValue: 'My-new-app')
