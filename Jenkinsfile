@@ -14,10 +14,11 @@ pipeline {
     }
     stages {
         stage('Code') {
-             when {
+             if {
                 branch 'Dev'
              }
-            steps {
+             else {
+                steps {
                      echo "Writing code for $Code_app "
             }
         }
@@ -59,6 +60,7 @@ pipeline {
         stage('Deploy on Production') {
             steps {
                 echo "Deploying $params.Deploy_on_Prod_app  on Production Environment with version $params.VERSION"
+                }
             }
         }
     }
