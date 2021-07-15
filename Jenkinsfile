@@ -18,6 +18,7 @@ pipeline {
                 script {
                     if (env.BRANCH_NAME == 'main') {
                         echo "Writing code for $Code_app "
+                    } else {
                     }
                 }
             }
