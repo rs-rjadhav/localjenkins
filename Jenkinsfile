@@ -10,9 +10,9 @@ pipeline {
         string(name: 'Review_app', defaultValue: 'My-new-app')
         string(name: 'Staging_app', defaultValue: 'My-new-app')
         string(name: 'Deploy_on_Prod_app', defaultValue: 'My-new-app')
-        booleanParam(name: 'ExecuteTestAgain', defaultValue: true)
-        booleanParam(name: 'Pearson A', defaultValue: '')
-        booleanParam(name: 'Pearson B', defaultValue: '')
+        booleanParam(name: 'ExecuteTestAgain', defaultValue: '')
+        booleanParam(name: 'Akshay', defaultValue: '')
+        booleanParam(name: 'Rohan', defaultValue: '')
         choice(name: 'VERSION', choices: ['1.1', '1.2', '1.3', '1.4', '1.5'])
     }
     stages {
@@ -42,7 +42,14 @@ pipeline {
         }
         stage('Review') {
             steps {
-                echo "Reviewing $params.Review_app"
+                if ( params.Akshay == true ) {
+                echo "Akshay is reviewing $params.Review_app"
+                } else {
+                if ( params.Rohan == true )
+                      echo "Rohan is reviewing $params.Review_app"
+                } else {
+                    echo "Sachin is reviewing $params.Review_app"
+                }
             }
         }
         stage('TestAgain') {
