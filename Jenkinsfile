@@ -45,9 +45,9 @@ pipeline {
                 script {
                      if ( params.Akshay == true ) {
                         echo "Akshay is reviewing $params.Review_app"
-                     } if ( params.Akshay && params.Rohan == true) {
+                     } else if ( params.Akshay && params.Rohan == true) {
                         echo "Both are reviewing $params.Review_app"
-                     } if else ( params.Rohan == true ) {
+                     } else if ( params.Rohan == true ) {
                         echo "Rohan is reviewing $params.Review_app"
                      } 
                      else {
