@@ -65,8 +65,7 @@ pipeline {
          post { 
              success { 
                 echo 'Successful Build!'
-                }
-            }
-        }
+              }
+         }
     }
 }
