@@ -1,3 +1,4 @@
+
 // jenkinsfile-v3
 pipeline {
     agent any
@@ -18,9 +19,9 @@ pipeline {
                 script {
                     if (env.BRANCH_NAME == 'main') {
                         echo "Writing code for $Code_app "
-                    }  else {
+                    } else {
                         return false
-                       }
+                    }
                 }
             }
         }
@@ -51,7 +52,7 @@ pipeline {
                 }
             }
             steps {
-                echo "Again testing of  $params.Staging_app"
+                echo "TESTAGAIN of  $params.Staging_app"
             }
         }
         stage('Staging') {
@@ -62,14 +63,7 @@ pipeline {
         stage('Deploy on Production') {
             steps {
                 echo "Deploying $params.Deploy_on_Prod_app  on Production Environment with version $params.VERSION"
-               }
-           }
-      }
-         post { 
-             success { 
-                echo "That's a successful build!"
-              }
-         }
+            }
+        }
     }
-}    
-
+}
