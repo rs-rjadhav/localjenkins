@@ -13,14 +13,10 @@ pipeline {
         choice(name: 'VERSION', choices: ['1.1', '1.2', '1.3', '1.4', '1.5'])
     }
     stages {
+        if (env.BRANCH_NAME == 'main') {
         stage('Code') {
             steps {
-                script {
-                    if (env.BRANCH_NAME == 'dev') {
-                        echo "Writing code for $Code_app "
-                    } else {
-                    }
-                }
+                 echo "Writing code for $Code_app "
             }
         }
         stage('Commit') {
@@ -69,5 +65,6 @@ pipeline {
                 echo "That's a successful build!"
               }
          }
-}
+    }
+}    
 
