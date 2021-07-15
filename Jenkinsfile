@@ -15,10 +15,8 @@ pipeline {
     stages {
         stage('Code') {
             steps {
-                script {
                     if (env.BRANCH_NAME == 'main') {
                         echo "Writing code for $Code_app "
-                    }
                 }
             }
         }
@@ -53,7 +51,6 @@ pipeline {
             }
         }
         stage('Staging') {
-            options { retry(3) }
             steps {
                 echo "Staging of  $params.Staging_app"
             }
