@@ -60,12 +60,12 @@ pipeline {
         stage('Deploy on Production') {
             steps {
                 echo "Deploying $params.Deploy_on_Prod_app  on Production Environment with version $params.VERSION"
-                }
-            }
+               }
+           }
+      }
+}
          post { 
              success { 
                 echo 'Successful Build!'
               }
          }
-    }
-}
