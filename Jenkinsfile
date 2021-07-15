@@ -43,12 +43,14 @@ pipeline {
         stage('Review') {
             steps {
                 if ( params.Akshay == true ) {
-                echo "Akshay is reviewing $params.Review_app"
-                } else {
+                        echo "Akshay is reviewing $params.Review_app"
+                } 
+                else {
                 if ( params.Rohan == true )
-                      echo "Rohan is reviewing $params.Review_app"
-                } else {
-                    echo "Sachin is reviewing $params.Review_app"
+                        echo "Rohan is reviewing $params.Review_app"
+                } 
+                else {
+                        echo "Sachin is reviewing $params.Review_app"
                 }
             }
         }
