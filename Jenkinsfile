@@ -15,8 +15,10 @@ pipeline {
     stages {
         stage('Code') {
             steps {
-                    if (BRANCH_NAME == 'main') {
+                script {
+                    if (env.BRANCH_NAME == 'main') {
                         echo "Writing code for $Code_app "
+                    }
                 }
             }
         }
@@ -47,7 +49,7 @@ pipeline {
                 }
             }
             steps {
-                echo "TESTAGAIN of  $params.Staging_app"
+                echo "Again testing of  $params.Staging_app"
             }
         }
         stage('Staging') {
