@@ -1,5 +1,5 @@
 
-// jenkinsfile-v3
+// Jenkinsfile
 pipeline {
     agent any
     parameters {
@@ -11,6 +11,8 @@ pipeline {
         string(name: 'Staging_app', defaultValue: 'My-new-app')
         string(name: 'Deploy_on_Prod_app', defaultValue: 'My-new-app')
         booleanParam(name: 'ExecuteTestAgain', defaultValue: true)
+        booleanParam(name: 'Pearson A', defaultValue: '')
+        booleanParam(name: 'Pearson B', defaultValue: '')
         choice(name: 'VERSION', choices: ['1.1', '1.2', '1.3', '1.4', '1.5'])
     }
     stages {
@@ -50,7 +52,7 @@ pipeline {
                 }
             }
             steps {
-                echo "TESTAGAIN of  $params.Staging_app"
+                echo "Again testing of  $params.Staging_app"
             }
         }
         stage('Staging') {
@@ -66,7 +68,7 @@ pipeline {
     }
         post { 
             success { 
-                echo 'I will always say Hello again!'
+                echo "That's a successful build!!"
         }
     }
 }
