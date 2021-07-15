@@ -42,6 +42,7 @@ pipeline {
         }
         stage('Review') {
             steps {
+                script {
                      if ( params.Akshay == true ) {
                         echo "Akshay is reviewing $params.Review_app"
                      } else 
@@ -53,6 +54,7 @@ pipeline {
                 }
             }
         }
+   }
         stage('TestAgain') {
             when {
                 allOf{
