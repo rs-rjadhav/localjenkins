@@ -19,8 +19,6 @@ pipeline {
                 script {
                     if (env.BRANCH_NAME == 'master') {
                         echo "Writing code for $Code_app "
-                    } else {
-                        return false
                     }
                 }
             }
@@ -64,6 +62,11 @@ pipeline {
             steps {
                 echo "Deploying $params.Deploy_on_Prod_app  on Production Environment with version $params.VERSION"
             }
+        }
+    }
+        post { 
+            success { 
+                echo 'I will always say Hello again!'
         }
     }
 }
