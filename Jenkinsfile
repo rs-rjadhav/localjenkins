@@ -14,12 +14,11 @@ pipeline {
     }
     stages {
         stage('Code') {
+             when {
+                branch 'main'
+             }
             steps {
-                script {
-                    if (env.BRANCH_NAME == 'main') {
-                        echo "Writing code for $Code_app "
-                    }
-                }
+                     echo "Writing code for $Code_app "
             }
         }
         stage('Commit') {
