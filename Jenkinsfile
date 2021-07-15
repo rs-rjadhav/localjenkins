@@ -13,15 +13,15 @@ pipeline {
         choice(name: 'VERSION', choices: ['1.1', '1.2', '1.3', '1.4', '1.5'])
     }
     stages {
+    stages {
         stage('Code') {
-             if {
-                branch 'Dev'
-                    steps {
+            steps {
+                script {
+                    if (env.BRANCH_NAME == 'main') {
                         echo "Writing code for $Code_app "
+                    }
                 }
-             }
-             else {
-                
+            }
         }
         stage('Commit') {
             steps {
@@ -61,6 +61,11 @@ pipeline {
         stage('Deploy on Production') {
             steps {
                 echo "Deploying $params.Deploy_on_Prod_app  on Production Environment with version $params.VERSION"
+                }
+            }
+         post { 
+             success { 
+                echo 'Successful Build!'
                 }
             }
         }
