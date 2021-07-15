@@ -13,7 +13,6 @@ pipeline {
         choice(name: 'VERSION', choices: ['1.1', '1.2', '1.3', '1.4', '1.5'])
     }
     stages {
-    stages {
         stage('Code') {
             steps {
                 script {
