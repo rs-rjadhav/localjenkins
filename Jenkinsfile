@@ -16,11 +16,12 @@ pipeline {
         stage('Code') {
              if {
                 branch 'Dev'
+                    steps {
+                        echo "Writing code for $Code_app "
+                }
              }
              else {
-                steps {
-                     echo "Writing code for $Code_app "
-            }
+                
         }
         stage('Commit') {
             steps {
