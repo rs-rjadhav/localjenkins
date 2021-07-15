@@ -53,6 +53,7 @@ pipeline {
             }
         }
         stage('Staging') {
+            options { retry(3) }
             steps {
                 echo "Staging of  $params.Staging_app"
             }
