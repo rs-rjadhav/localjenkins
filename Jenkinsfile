@@ -80,4 +80,5 @@ pipeline {
             success { 
                 echo "That's a successful build...!"
         }
+    }
 }
