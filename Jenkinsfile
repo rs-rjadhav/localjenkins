@@ -83,5 +83,6 @@ pipeline {
         }
             failure {
                 echo "Somethings Wrong"
+         }
     }
 }
