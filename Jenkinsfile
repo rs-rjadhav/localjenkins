@@ -45,9 +45,9 @@ pipeline {
                 script {
                      if ( params.Akshay == true ) {
                         echo "Akshay is reviewing $params.Review_app"
-                     } else if ( params.Akshay && params.Rohan == true) {
+                     } if ( params.Akshay && params.Rohan == true) {
                         echo "Both are reviewing $params.Review_app"
-                     } else if ( params.Rohan == true ) {
+                     } if ( params.Rohan == true ) {
                         echo "Rohan is reviewing $params.Review_app"
                      } 
                      else {
@@ -80,6 +80,11 @@ pipeline {
         post { 
             success { 
                 echo "That's a successful build!!"
+        }
+    }
+            post { 
+            failure { 
+                echo "Somethings Wrong!"
         }
     }
 }
