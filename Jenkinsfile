@@ -1,4 +1,3 @@
-
 // Jenkinsfile
 pipeline {
     agent any
@@ -81,8 +80,4 @@ pipeline {
             success { 
                 echo "That's a successful build...!"
         }
-            failure {
-                echo "Somethings Wrong"
-         }
-    }
 }
