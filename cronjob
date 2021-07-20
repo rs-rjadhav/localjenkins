@@ -7,14 +7,12 @@ pipeline {
       string(name: 'dev', defaultValue: 'Start', description: '')
     }
     triggers {
-    pipelineTriggers([
         parameterizedCron('''
             00 18 * * * $patcheat=Stop
             00 18 * * * $patchqa=Stop
             00 18 * * * $hotfixes=Stop
             00 18 * * * $dev=Stop
         ''')
-        ])
     }
     stages {
         stage('Example') {
