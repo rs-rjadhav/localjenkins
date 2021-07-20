@@ -8,10 +8,10 @@ pipeline {
     }
     triggers {
         parameterizedCron('''
-            00 18 * * * $patcheat=Stop
-            00 18 * * * $patchqa=Stop
-            00 18 * * * $hotfixes=Stop
-            00 18 * * * $dev=Stop
+            09 18 * * * $patcheat=Stop
+            09 18 * * * $patchqa=Stop
+            09 18 * * * $hotfixes=Stop
+            09 18 * * * $dev=Stop
         ''')
     }
     stages {
