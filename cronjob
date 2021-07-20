@@ -1,17 +1,17 @@
 pipeline {
     agent any
     parameters {
-      string(name: 'patcheat', defaultValue: 'start', description: '')
-      string(name: 'patchqa', defaultValue: 'start', description: '')
-      string(name: 'hotfixes', defaultValue: 'start', description: '')
-      string(name: 'dev', defaultValue: 'start', description: '')
+      string(name: 'patcheat', defaultValue: '', description: '')
+      string(name: 'patchqa', defaultValue: '', description: '')
+      string(name: 'hotfixes', defaultValue: '', description: '')
+      string(name: 'dev', defaultValue: '', description: '')
     }
     triggers {
         parameterizedCron('''
-            04 21 * * * %patcheat=stop
-            04 21 * * * %patchqa=stop
-            04 21 * * * %hotfixes=stop
-            04 21 * * * %dev=stop
+            04 34 * * * %patcheat=stop
+            04 34 * * * %patchqa=stop
+            04 34 * * * %hotfixes=stop
+            04 34 * * * %dev=stop
         ''')
     }
     stages {
