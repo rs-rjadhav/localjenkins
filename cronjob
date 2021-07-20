@@ -1,10 +1,10 @@
 pipeline {
     agent any
     parameters {
-      string(name: 'patcheat', defaultValue: '', description: '')
-      string(name: 'patchqa', defaultValue: '', description: '')
-      string(name: 'hotfixes', defaultValue: '', description: '')
-      string(name: 'dev', defaultValue: '', description: '')
+      string(name: 'patcheat', defaultValue: 'start', description: '')
+      string(name: 'patchqa', defaultValue: 'start', description: '')
+      string(name: 'hotfixes', defaultValue: 'start', description: '')
+      string(name: 'dev', defaultValue: 'start', description: '')
     }
     triggers {
         parameterizedCron('''
