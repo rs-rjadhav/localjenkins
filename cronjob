@@ -9,10 +9,10 @@ pipeline {
     triggers {
     pipelineTriggers([
         parameterizedCron('''
-            15 17 * * * $patcheat=Stop
-            15 17 * * * $patchqa=Stop
-            15 17 * * * $hotfixes=Stop
-            15 17 * * * $dev=Stop
+            00 18 * * * $patcheat=Stop
+            00 18 * * * $patchqa=Stop
+            00 18 * * * $hotfixes=Stop
+            00 18 * * * $dev=Stop
         ''')
         ])
     }
