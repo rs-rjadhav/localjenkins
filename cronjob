@@ -1,25 +1,24 @@
 pipeline {
     agent any
     parameters {
-      string(name: 'patcheat', defaultValue: 'Start', description: '')
-      string(name: 'patchqa', defaultValue: 'Start', description: '')
-      string(name: 'hotfixes', defaultValue: 'Start', description: '')
-      string(name: 'dev', defaultValue: 'Start', description: '')
+      string(name: 'githubRepo', defaultValue: 'configuration-management-service', description: 'GitHub Repository name')
+      string(name: 'githubRepoBranch', defaultValue: 'master', description: 'GitHub Repository branch')
+      string(name: 'patcheat', defaultValue: '', description: '')
+      string(name: 'patchqa', defaultValue: '', description: '')
+      string(name: 'hotfixes', defaultValue: '', description: '')
+      string(name: 'dev', defaultValue: '', description: '')
     }
     triggers {
         parameterizedCron('''
-            19 10 * * * %patcheat=Stop
-            19 10 * * * %patchqa=Stop
-            19 10 * * * %hotfixes=Stop
-            19 10 * * * %dev=Stop
-
+            56 10 * * * %patcheat && %patchqa && %hotfixes && %dev=Stop
         ''')
     }
-    stages {
-        stage('Example') {
+    stages {   
+        stage('Git clone') {
             steps {
-                echo "${params.patcheat} ${params.patchqa} ${params.hotfixes} ${params.dev}"
-                script { currentBuild.description = "${params.GREETING} ${params.PLANET}" }
+                gitClone repository: "${params.githubRepo}", branch: "${params.githubRepoBranch}"
+                    }
+                }
             }
         }
     }
