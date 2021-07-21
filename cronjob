@@ -1,21 +1,26 @@
+#cronjob
+
 pipeline {
     agent any
     parameters {
-      string(name: 'PLANET', defaultValue: 'Earth', description: 'Which planet are we on?')
-      string(name: 'GREETING', defaultValue: 'Hello', description: 'How shall we greet?')
+      string(name: 'patcheat', defaultValue: 'Start', description: '')
+      string(name: 'patchqa', defaultValue: 'Start', description: '')
+      string(name: 'hotfixes', defaultValue: 'Start', description: '')
+      string(name: 'dev', defaultValue: 'Start', description: '')
     }
     triggers {
         parameterizedCron('''
-            # leave spaces where you want them around the parameters. They'll be trimmed.
-            # we let the build run with the default name
-            */2 * * * * %GREETING=Hola;PLANET=Pluto
-            */3 * * * * %PLANET=Mars
+            */2 * * * * %patcheat=Stop
+            */2 * * * * %patchqa=Stop
+            */2 * * * * %hotfixes=Stop
+            */2 * * * * %dev=Stop
+
         ''')
     }
     stages {
         stage('Example') {
             steps {
-                echo "${params.GREETING} ${params.PLANET}"
+                echo "${params.patcheat} ${params.patchqa} ${params.hotfixes} ${params.dev}"
                 script { currentBuild.description = "${params.GREETING} ${params.PLANET}" }
             }
         }
