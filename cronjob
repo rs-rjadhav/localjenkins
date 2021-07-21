@@ -1,8 +1,6 @@
 pipeline {
     agent any
     parameters {
-      string(name: 'githubRepo', defaultValue: 'configuration-management-service', description: 'GitHub Repository name')
-      string(name: 'githubRepoBranch', defaultValue: 'master', description: 'GitHub Repository branch')
       string(name: 'patcheat', defaultValue: '', description: '')
       string(name: 'patchqa', defaultValue: '', description: '')
       string(name: 'hotfixes', defaultValue: '', description: '')
