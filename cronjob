@@ -17,7 +17,6 @@ pipeline {
         stage('Git clone') {
             steps {
                 gitClone repository: "${params.githubRepo}", branch: "${params.githubRepoBranch}"
-                    }
                 }
             }
         }
