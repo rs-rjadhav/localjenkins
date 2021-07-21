@@ -8,10 +8,10 @@ pipeline {
     }
     triggers {
         parameterizedCron('''
-            04 4 * * * %patcheat=Stop
-            04 4 * * * %patchqa=Stop
-            04 4 * * * %hotfixes=Stop
-            04 4 * * * %dev=Stop
+            10 4 * * * %patcheat=Stop
+            10 4 * * * %patchqa=Stop
+            10 4 * * * %hotfixes=Stop
+            10 4 * * * %dev=Stop
 
         ''')
     }
